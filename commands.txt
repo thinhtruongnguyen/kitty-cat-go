@@ -1,0 +1,1 @@
+java -jar openapi-generator-cli.jar generate -i doc_filtered.json -g go -o ./generated-go-client --additional-properties=packageName=myclient

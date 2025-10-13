@@ -1,0 +1,2344 @@
+{
+  "schemes": [],
+  "swagger": "2.0",
+  "info": {
+    "description": "API for AIOZ AI Platform",
+    "title": "AIOZ-AI-PLATFORM API",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "name": "API Support",
+      "url": "http://www.swagger.io/support",
+      "email": "support@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0"
+  },
+  "host": "",
+  "basePath": "/api/v1/",
+  "paths": {
+    "/api-key/balance": {
+      "get": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key"
+        ],
+        "summary": "Get Api Key Balance",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.WalletWithAddressResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.FailResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api-key/model/verify/hub/task/{id}": {
+      "get": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key.model.verify"
+        ],
+        "summary": "Get Model Versioning By Hub Task Id By Api Key",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "description": "Hub Task's id",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.ModelVersioningResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.FailResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api-key/model/verify/platform/task/{id}": {
+      "get": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key.model.verify"
+        ],
+        "summary": "Get Verify Platform Task By Id By Api Key",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "description": "Task's Id",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.QueueTaskResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.FailResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api-key/model/verify/support/platforms": {
+      "get": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key.model"
+        ],
+        "summary": "Get List Platforms Support By Api Key",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.GetListPlatformSupportResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api-key/model/{id}/info": {
+      "get": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key.model"
+        ],
+        "summary": "Get Api Key Model Info",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Model's id",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.ApiKeyInfoResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.FailResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api-key/model/{id}/pre-verify": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key.model.verify"
+        ],
+        "summary": "Check Valid Source code To Verify Ai Model By Api Key",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Model's id",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          },
+          {
+            "description": "Verify Ai Model Request",
+            "name": "input",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/request.CheckValidToVerifyAiModelRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.CheckValidToVerifyAiModelResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.FailResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api-key/model/{id}/serving": {
+      "get": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key.model"
+        ],
+        "summary": "Check Model Is Serving",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Model's id",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.CheckModelIsServingResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api-key/model/{id}/statistics": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key.model"
+        ],
+        "summary": "Get Model Statistics",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Model's id",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          },
+          {
+            "description": "Get Api Key Statistics By Model Id Request",
+            "name": "input",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/request.GetApiKeyStatisticsByModelIdRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.GetTaskStatisticsResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.FailResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api-key/model/{id}/task/cost": {
+      "get": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key.model"
+        ],
+        "summary": "Get cost to compute task by model api key",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Model's id",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.EstimateCostResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.FailResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api-key/model/{id}/verify": {
+      "post": {
+        "description": "valid platform is [window, linux, macApple, macIntel]",
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key.model.verify"
+        ],
+        "summary": "Verify Ai Model By Api Key",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "description": "Model's id",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "description": "Verify Ai Model Request",
+            "name": "input",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/request.VerifyAiModelRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.VerifyAiModelResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.FailResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api-key/model/{id}/verify/cost": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key.model.verify"
+        ],
+        "summary": "Calculate Cost To Verify Ai Model By Api Key",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "description": "Model's id",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "description": "Verify Ai Model Request",
+            "name": "input",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/request.CalculateCostToVerifyAiModelRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.EstimateCostResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.FailResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api-key/model/{id}/verify/task": {
+      "get": {
+        "description": "verifyStatus is one of rejected, verified, pending",
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key.model.verify"
+        ],
+        "summary": "Get List Verify Model Task By Commit Hash And Status",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "description": "Model's id",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "commitHash",
+            "in": "query",
+            "required": true
+          },
+          {
+            "enum": [
+              "rejected",
+              "verified",
+              "pending"
+            ],
+            "type": "string",
+            "name": "verifyStatus",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.ModelVersioningGroupLiteListResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.FailResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api-key/model/{id}/versioning": {
+      "get": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key.model.versioning"
+        ],
+        "summary": "Get Current Model Versioning By Model Id By ApiKey",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "description": "Model's id",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.ModelVersioningGroupLiteResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.FailResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key.model.versioning"
+        ],
+        "summary": "Change Model Versioning By Commit Hash By Api Key",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "description": "Model's id",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "commitHash",
+            "in": "query",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.SuccessResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.FailResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key.model.versioning"
+        ],
+        "summary": "Delete Model Versioning By Commit Hash By Api Key",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "description": "Model's id",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "commitHash",
+            "in": "query",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.SuccessResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.FailResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api-key/model/{id}/versioning/list": {
+      "get": {
+        "description": "verifyStatus is verified or all. Use verified to get verified versioning. Use all to get verified history",
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key.model.versioning"
+        ],
+        "summary": "Get Verified List Model Versioning By Api Key",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "description": "Model's id",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "maximum": 100,
+            "type": "integer",
+            "default": 10,
+            "name": "limit",
+            "in": "query"
+          },
+          {
+            "minimum": 0,
+            "type": "integer",
+            "default": 0,
+            "name": "offset",
+            "in": "query"
+          },
+          {
+            "enum": [
+              "verified",
+              "all"
+            ],
+            "type": "string",
+            "name": "verifyStatus",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.GetListModelVersioningLiteResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.FailResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api-key/permission": {
+      "get": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key"
+        ],
+        "summary": "Get Api Key Permission",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.GetApiKeyPermissionResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.FailResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api-key/repository/{ownerUsername}/{repositoryName}/commit/history": {
+      "get": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key.repository"
+        ],
+        "summary": "Get commit history by repository name and branch name by api key",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "description": "repository's owner",
+            "name": "ownerUsername",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "repository's name",
+            "name": "repositoryName",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "integer",
+            "default": 1,
+            "description": "Page is the page number (default: 1) (optional)",
+            "name": "page",
+            "in": "query"
+          },
+          {
+            "maximum": 100,
+            "type": "integer",
+            "default": 10,
+            "description": "PageSize is the page size (default: 10) (optional)",
+            "name": "pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "Path is the path of the file (optional)",
+            "name": "path",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "repoType",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "description": "Sha is the sha of the commit (optional)",
+            "name": "sha",
+            "in": "query",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.GetCommitHistoryResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.FailResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api-key/statistics": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key"
+        ],
+        "summary": "Get Api Key Statistics",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          },
+          {
+            "description": "Get Api Key Statistics Request",
+            "name": "input",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/request.GetApiKeyStatisticsByModelIdRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.GetTaskStatisticsResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.FailResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api-key/task": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key"
+        ],
+        "summary": "Distribute Task (Api-Key)",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          },
+          {
+            "description": "Distribute Task Request",
+            "name": "input",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/request.DistributeTaskRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.DistributeTaskResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api-key/task/histories": {
+      "get": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key"
+        ],
+        "summary": "Get Tasks Histories",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          },
+          {
+            "maximum": 100,
+            "type": "integer",
+            "default": 10,
+            "name": "limit",
+            "in": "query"
+          },
+          {
+            "minimum": 0,
+            "type": "integer",
+            "default": 0,
+            "name": "offset",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.ApiKeyHistoryListResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.FailResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api-key/task/{id}/cancel": {
+      "delete": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key"
+        ],
+        "summary": "Cancel Task By Api Key",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "description": "Task's id",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.SuccessResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api-key/task/{id}/result": {
+      "get": {
+        "consumes": [
+          "application/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "api-key"
+        ],
+        "summary": "Get Task Result",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "api-key",
+            "name": "x-api-key",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "description": "Task's id",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/response.GetTaskResultResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "models.ApiKeyHistories": {
+      "type": "object",
+      "properties": {
+        "created_at": {
+          "type": "string"
+        },
+        "model_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "task_id": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        }
+      }
+    },
+    "models.ApiKeyInfo": {
+      "type": "object",
+      "properties": {
+        "api_price": {
+          "type": "number"
+        },
+        "commit_hash": {
+          "type": "string"
+        },
+        "input_format": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "model_description": {
+          "type": "string"
+        },
+        "model_id": {
+          "type": "string"
+        },
+        "output_format": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "models.ApiKeyPackage": {
+      "type": "object",
+      "properties": {
+        "model_id": {
+          "type": "string"
+        },
+        "uses_remaining": {
+          "type": "integer"
+        }
+      }
+    },
+    "models.Commit": {
+      "type": "object",
+      "properties": {
+        "author": {
+          "$ref": "#/definitions/models.User"
+        },
+        "commit_affected_files": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "commit_data": {
+          "$ref": "#/definitions/models.User"
+        },
+        "commit_meta": {
+          "$ref": "#/definitions/models.CommitMeta"
+        },
+        "parents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/models.CommitMeta"
+          }
+        },
+        "repo_commit": {
+          "$ref": "#/definitions/models.RepoCommit"
+        },
+        "stats": {
+          "$ref": "#/definitions/models.CommitStats"
+        }
+      }
+    },
+    "models.CommitMeta": {
+      "type": "object",
+      "properties": {
+        "created": {
+          "type": "string"
+        },
+        "sha": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "models.CommitStats": {
+      "type": "object",
+      "properties": {
+        "additions": {
+          "type": "integer"
+        },
+        "deletions": {
+          "type": "integer"
+        },
+        "total": {
+          "type": "integer"
+        }
+      }
+    },
+    "models.CommitUser": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "models.Follow": {
+      "type": "object",
+      "properties": {
+        "avatar": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      }
+    },
+    "models.Member": {
+      "type": "object",
+      "properties": {
+        "avatar_url": {
+          "type": "string"
+        },
+        "full_name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      }
+    },
+    "models.ModelVersioning": {
+      "type": "object",
+      "properties": {
+        "commit_hash": {
+          "type": "string"
+        },
+        "commit_message": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "dependency": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "id": {
+          "type": "string"
+        },
+        "input_format": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "model_id": {
+          "type": "string"
+        },
+        "node_reward": {
+          "type": "number"
+        },
+        "output_format": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "platform": {
+          "type": "string"
+        },
+        "sys_require": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "test_result": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "verify_status": {
+          "type": "string"
+        },
+        "verify_task_id": {
+          "type": "string"
+        }
+      }
+    },
+    "models.ModelVersioningGroupLite": {
+      "type": "object",
+      "properties": {
+        "commit_hash": {
+          "description": "Dependency        map[string]interface{} `json:\"dependency\"`",
+          "type": "string"
+        },
+        "commit_message": {
+          "description": "TestResult        map[string]interface{} `json:\"test_result\"`\nInputFormat       map[string]interface{} `json:\"input_format\"`\nOutputFormat      map[string]interface{} `json:\"output_format\"`\nSysRequired       map[string]interface{} `json:\"sys_require\"`",
+          "type": "string"
+        },
+        "is_active": {
+          "type": "boolean"
+        },
+        "last_checked_at": {
+          "type": "string"
+        },
+        "model_id": {
+          "type": "string"
+        },
+        "pending_platforms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/models.PlatformTask"
+          }
+        },
+        "rejected_platforms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/models.PlatformTask"
+          }
+        },
+        "verified_platforms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/models.PlatformTask"
+          }
+        },
+        "verify_status": {
+          "type": "string"
+        }
+      }
+    },
+    "models.Offer": {
+      "type": "object",
+      "properties": {
+        "created_at": {
+          "type": "integer"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "exp_at": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "string"
+        },
+        "org_username": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      }
+    },
+    "models.PlatformTask": {
+      "type": "object",
+      "properties": {
+        "platform": {
+          "type": "string"
+        },
+        "test_result": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "verify_task_id": {
+          "type": "string"
+        }
+      }
+    },
+    "models.QueueTask": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "object_id": {
+          "type": "string"
+        },
+        "object_name": {
+          "type": "string"
+        },
+        "result": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "state": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        }
+      }
+    },
+    "models.RepoCommit": {
+      "type": "object",
+      "properties": {
+        "author": {
+          "$ref": "#/definitions/models.CommitUser"
+        },
+        "committer": {
+          "$ref": "#/definitions/models.CommitUser"
+        },
+        "message": {
+          "type": "string"
+        },
+        "tree": {
+          "$ref": "#/definitions/models.CommitMeta"
+        }
+      }
+    },
+    "models.User": {
+      "type": "object",
+      "properties": {
+        "allow_request_to_join": {
+          "type": "boolean"
+        },
+        "avatar_url": {
+          "type": "string"
+        },
+        "bio": {
+          "type": "string"
+        },
+        "blocked": {
+          "type": "boolean"
+        },
+        "blocked_at": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "followers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/models.Follow"
+          }
+        },
+        "followers_count": {
+          "type": "integer"
+        },
+        "followings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/models.Follow"
+          }
+        },
+        "followings_count": {
+          "type": "integer"
+        },
+        "github_link": {
+          "type": "string"
+        },
+        "github_name": {
+          "type": "string"
+        },
+        "home_page_name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "interests": {
+          "type": "string"
+        },
+        "invite_offers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/models.Offer"
+          }
+        },
+        "invite_offers_count": {
+          "type": "integer"
+        },
+        "is_following": {
+          "type": "boolean"
+        },
+        "join_id": {
+          "type": "string"
+        },
+        "join_offers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/models.Offer"
+          }
+        },
+        "join_offers_count": {
+          "type": "integer"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/models.Member"
+          }
+        },
+        "members_count": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "twitter_link": {
+          "type": "string"
+        },
+        "twitter_name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        },
+        "visibility": {
+          "type": "string"
+        },
+        "wallet": {
+          "$ref": "#/definitions/models.Wallet"
+        },
+        "wallet_address": {
+          "type": "string"
+        },
+        "wallet_connection": {
+          "type": "string"
+        }
+      }
+    },
+    "models.Wallet": {
+      "type": "object",
+      "properties": {
+        "balance": {
+          "type": "number"
+        },
+        "debt": {
+          "type": "number"
+        },
+        "earnings": {
+          "type": "number"
+        },
+        "free_balance": {
+          "type": "number"
+        }
+      }
+    },
+    "models.WalletWithAddress": {
+      "type": "object",
+      "properties": {
+        "balance": {
+          "type": "number"
+        },
+        "debt": {
+          "type": "number"
+        },
+        "earnings": {
+          "type": "number"
+        },
+        "free_balance": {
+          "type": "number"
+        },
+        "wallet_address": {
+          "type": "string"
+        }
+      }
+    },
+    "request.CalculateCostToVerifyAiModelRequest": {
+      "type": "object",
+      "required": [
+        "commit_hash",
+        "platforms"
+      ],
+      "properties": {
+        "commit_hash": {
+          "type": "string"
+        },
+        "platforms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "request.CheckValidToVerifyAiModelRequest": {
+      "type": "object",
+      "required": [
+        "commit_hash",
+        "platforms"
+      ],
+      "properties": {
+        "commit_hash": {
+          "type": "string"
+        },
+        "platforms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "request.DistributeTaskRequest": {
+      "type": "object",
+      "properties": {
+        "files": {
+          "type": "array",
+          "items": {}
+        },
+        "input_params": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "model_id": {
+          "type": "string"
+        }
+      }
+    },
+    "request.GetApiKeyStatisticsByModelIdRequest": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "type": "string",
+          "example": "2023-05-07 15:04:05"
+        },
+        "to": {
+          "type": "string",
+          "example": "2023-05-07 15:04:05"
+        }
+      }
+    },
+    "request.VerifyAiModelRequest": {
+      "type": "object",
+      "required": [
+        "platforms"
+      ],
+      "properties": {
+        "commit_hash": {
+          "type": "string"
+        },
+        "platforms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "response.ApiKeyHistoryListData": {
+      "type": "object",
+      "properties": {
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/models.ApiKeyHistories"
+          }
+        },
+        "total": {
+          "type": "integer"
+        }
+      }
+    },
+    "response.ApiKeyHistoryListResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/response.ApiKeyHistoryListData"
+        },
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "default": "success"
+        }
+      }
+    },
+    "response.ApiKeyInfoResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/models.ApiKeyInfo"
+        },
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "default": "success"
+        }
+      }
+    },
+    "response.CheckModelIsServingData": {
+      "type": "object",
+      "properties": {
+        "consumers": {
+          "type": "integer"
+        },
+        "serving": {
+          "type": "boolean"
+        }
+      }
+    },
+    "response.CheckModelIsServingResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/response.CheckModelIsServingData"
+        },
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "default": "success"
+        }
+      }
+    },
+    "response.CheckValidToVerifyAiModelData": {
+      "type": "object",
+      "properties": {
+        "valid": {
+          "type": "boolean"
+        }
+      }
+    },
+    "response.CheckValidToVerifyAiModelResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/response.CheckValidToVerifyAiModelData"
+        },
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "default": "success"
+        }
+      }
+    },
+    "response.DistributeTaskResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "default": "success"
+        }
+      }
+    },
+    "response.ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "default": "error"
+        }
+      }
+    },
+    "response.EstimateCostData": {
+      "type": "object",
+      "properties": {
+        "cost": {
+          "type": "number"
+        },
+        "symbol": {
+          "type": "string",
+          "default": "$"
+        },
+        "unit": {
+          "type": "string",
+          "default": "USD"
+        }
+      }
+    },
+    "response.EstimateCostResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/response.EstimateCostData"
+        },
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "default": "success"
+        }
+      }
+    },
+    "response.FailResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "default": "fail"
+        }
+      }
+    },
+    "response.GetApiKeyPermissionData": {
+      "type": "object",
+      "properties": {
+        "api_key_packages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/models.ApiKeyPackage"
+          }
+        },
+        "limit_models": {
+          "type": "boolean"
+        },
+        "models": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "response.GetApiKeyPermissionResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/response.GetApiKeyPermissionData"
+        },
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "default": "success"
+        }
+      }
+    },
+    "response.GetCommitHistoryData": {
+      "type": "object",
+      "properties": {
+        "commit": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/models.Commit"
+          }
+        },
+        "has_more": {
+          "type": "boolean"
+        },
+        "last_page": {
+          "type": "integer"
+        }
+      }
+    },
+    "response.GetCommitHistoryResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/response.GetCommitHistoryData"
+        },
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "default": "success"
+        }
+      }
+    },
+    "response.GetListModelVersioningLiteResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/response.GetListModelVersioningsLiteData"
+        },
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "default": "success"
+        }
+      }
+    },
+    "response.GetListModelVersioningsLiteData": {
+      "type": "object",
+      "properties": {
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/models.ModelVersioningGroupLite"
+          }
+        },
+        "total": {
+          "type": "integer"
+        }
+      }
+    },
+    "response.GetListPlatformSupportResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "default": "success"
+        }
+      }
+    },
+    "response.GetTaskResultData": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/response.Result"
+        },
+        "status": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "traceback": {
+          "type": "string"
+        }
+      }
+    },
+    "response.GetTaskResultResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/response.GetTaskResultData"
+        },
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "default": "success"
+        }
+      }
+    },
+    "response.GetTaskStatisticsData": {
+      "type": "object",
+      "properties": {
+        "total_cost": {
+          "type": "integer"
+        },
+        "total_failed": {
+          "type": "integer"
+        },
+        "total_request": {
+          "type": "integer"
+        },
+        "total_success": {
+          "type": "integer"
+        }
+      }
+    },
+    "response.GetTaskStatisticsResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/response.GetTaskStatisticsData"
+        },
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "default": "success"
+        }
+      }
+    },
+    "response.ModelVersioningGroupLiteListData": {
+      "type": "object",
+      "properties": {
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/models.ModelVersioningGroupLite"
+          }
+        },
+        "total": {
+          "type": "integer"
+        }
+      }
+    },
+    "response.ModelVersioningGroupLiteListResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/response.ModelVersioningGroupLiteListData"
+        },
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "default": "success"
+        }
+      }
+    },
+    "response.ModelVersioningGroupLiteResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/models.ModelVersioningGroupLite"
+        },
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "default": "success"
+        }
+      }
+    },
+    "response.ModelVersioningResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/models.ModelVersioning"
+        },
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "default": "success"
+        }
+      }
+    },
+    "response.QueueTaskResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/models.QueueTask"
+        },
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "default": "success"
+        }
+      }
+    },
+    "response.Result": {
+      "type": "object",
+      "properties": {
+        "_t_logs": {
+          "type": "string"
+        },
+        "output": {
+          "type": "string"
+        }
+      }
+    },
+    "response.SuccessResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "default": "success"
+        }
+      }
+    },
+    "response.VerifyAiModelResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "default": "success"
+        }
+      }
+    },
+    "response.WalletWithAddressResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/models.WalletWithAddress"
+        },
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "default": "success"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "BearerAuth": {
+      "description": "Enter the token with the `Bearer: ` prefix, e.g. \"Bearer eyJhbGciO\".",
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "externalDocs": {
+    "description": "OpenAPI",
+    "url": "https://swagger.io/resources/open-api/"
+  }
+}
