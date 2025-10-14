@@ -1,2 +1,3 @@
 generated-go-client/
 openapi-generator-cli.jar
+.env
