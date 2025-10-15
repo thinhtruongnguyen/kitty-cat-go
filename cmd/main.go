@@ -97,6 +97,8 @@ func main() {
 		return
 	}
 	aiozaiplatformgosdk.PrettyPrint(respGetBalance)
+	fmt.Println(*respGetBalance.Status)
+	fmt.Println(*respGetBalance.Data.WalletAddress)
 
 	// respGetApiKeyPermission, err := client.ApiApiKey.GetApiKeyPermission()
 	// if err != nil {
