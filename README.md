@@ -1,11 +1,11 @@
-<h1 align="center">AIOZ SDK Go client</h1>
+<h1 align="center">My SDK Go client</h1>
 
 
 
 ## Project description
-Using aioz-sdk golang package to querry data from AIOZ Flatform by using APIKey. For example , Getting user balance, creating a task, getting task result, getting statistics and history of models, checking API permission ...
+Using my-sdk golang package to querry data from my Flatform by using APIKey. For example , Getting user balance, creating a task, getting task result, getting statistics and history of models, checking API permission ...
 
-To start, simply require the AIOZ-SDK and set up an instance with your W3AI API Keys.Please checking out your AIOZ Page. In the example below show you how to using the SDK.
+To start, simply require the my-SDK and set up an instance with your W3AI API Keys.Please checking out your my Page. In the example below show you how to using the SDK.
 ### Installation
 ```bash
 go get github.com/thinhtruongnguyen/kitty-cat-go
@@ -20,13 +20,13 @@ package main
 import (
 	"fmt"
 
-	aiozaiplatformgosdk "github.com/thinhtruongnguyen/kitty-cat-go"
+	mysdk "github.com/thinhtruongnguyen/kitty-cat-go"
 )
 const API_KEY = "YOUR_API_KEY"
 
 func main() {
-	builder := aiozaiplatformgosdk.ClientBuilder(
-		aiozaiplatformgosdk.AuthCredentials{ApiKey: API_KEY},
+	builder := mysdk.ClientBuilder(
+		mysdk.AuthCredentials{ApiKey: API_KEY},
 	)
 	client := builder.Build()
 
@@ -35,9 +35,9 @@ func main() {
 		fmt.Printf("API call failed (GetBalance): %v", err)
 		return
 	}
-	aiozaiplatformgosdk.PrettyPrint(respGetBalance)
-	// fmt.Println(*respGetBalance.Status)
-	// fmt.Println(*respGetBalance.Data.FreeBalance)
+	mysdk.PrettyPrint(respGetBalance)
+	fmt.Println(*respGetBalance.Status)
+	fmt.Println(*respGetBalance.Data.FreeBalance)
 }
 
 ```
@@ -52,13 +52,13 @@ All URIs are relative to *http://localhost/api/v1*
 ##### Retrieve an instance of the ApiKey API:
 ```go
 import (
-	aiozaiplatformgosdk "github.com/thinhtruongnguyen/kitty-cat-go"
+	mysdk "github.com/thinhtruongnguyen/kitty-cat-go"
 )
 const API_KEY = "YOUR_API_KEY"
 
 func main() {
-	builder := aiozaiplatformgosdk.ClientBuilder(
-		aiozaiplatformgosdk.AuthCredentials{ApiKey: API_KEY},
+	builder := mysdk.ClientBuilder(
+		mysdk.AuthCredentials{ApiKey: API_KEY},
 	)
 	client := builder.Build()
 
@@ -85,13 +85,13 @@ Method | HTTP request | Description
 ##### Retrieve an instance of the ApiKey API:
 ```go
 import (
-	aiozaiplatformgosdk "github.com/thinhtruongnguyen/kitty-cat-go"
+	mysdk "github.com/thinhtruongnguyen/kitty-cat-go"
 )
 const API_KEY = "YOUR_API_KEY"
 
 func main() {
-	builder := aiozaiplatformgosdk.ClientBuilder(
-		aiozaiplatformgosdk.AuthCredentials{ApiKey: API_KEY},
+	builder := mysdk.ClientBuilder(
+		mysdk.AuthCredentials{ApiKey: API_KEY},
 	)
 	client := builder.Build()
 
@@ -116,13 +116,13 @@ Method | HTTP request | Description
 ##### Retrieve an instance of the ApiKey API:
 ```go
 import (
-	aiozaiplatformgosdk "github.com/thinhtruongnguyen/kitty-cat-go"
+	mysdk "github.com/thinhtruongnguyen/kitty-cat-go"
 )
 const API_KEY = "YOUR_API_KEY"
 
 func main() {
-	builder := aiozaiplatformgosdk.ClientBuilder(
-		aiozaiplatformgosdk.AuthCredentials{ApiKey: API_KEY},
+	builder := mysdk.ClientBuilder(
+		mysdk.AuthCredentials{ApiKey: API_KEY},
 	)
 	client := builder.Build()
 
@@ -148,13 +148,13 @@ Method | HTTP request | Description
 ##### Retrieve an instance of the ApiKey API:
 ```go
 import (
-	aiozaiplatformgosdk "github.com/thinhtruongnguyen/kitty-cat-go"
+	mysdk "github.com/thinhtruongnguyen/kitty-cat-go"
 )
 const API_KEY = "YOUR_API_KEY"
 
 func main() {
-	builder := aiozaiplatformgosdk.ClientBuilder(
-		aiozaiplatformgosdk.AuthCredentials{ApiKey: API_KEY},
+	builder := mysdk.ClientBuilder(
+		mysdk.AuthCredentials{ApiKey: API_KEY},
 	)
 	client := builder.Build()
 
@@ -177,13 +177,13 @@ Method | HTTP request | Description
 ##### Retrieve an instance of the ApiKey API:
 ```go
 import (
-	aiozaiplatformgosdk "github.com/thinhtruongnguyen/kitty-cat-go"
+	mysdk "github.com/thinhtruongnguyen/kitty-cat-go"
 )
 const API_KEY = "YOUR_API_KEY"
 
 func main() {
-	builder := aiozaiplatformgosdk.ClientBuilder(
-		aiozaiplatformgosdk.AuthCredentials{ApiKey: API_KEY},
+	builder := mysdk.ClientBuilder(
+		mysdk.AuthCredentials{ApiKey: API_KEY},
 	)
 	client := builder.Build()
 
@@ -274,13 +274,13 @@ Example
 
 ```go
 import (
-	aiozaiplatformgosdk "github.com/thinhtruongnguyen/kitty-cat-go"
+	mysdk "github.com/thinhtruongnguyen/kitty-cat-go"
 )
 const API_KEY = "YOUR_API_KEY"
 
 func main() {
-	builder := aiozaiplatformgosdk.ClientBuilder(
-		aiozaiplatformgosdk.AuthCredentials{ApiKey: API_KEY},
+	builder := mysdk.ClientBuilder(
+		mysdk.AuthCredentials{ApiKey: API_KEY},
 	)
 	client := builder.Build()
 }
