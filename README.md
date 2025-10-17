@@ -30,14 +30,14 @@ func main() {
 	)
 	client := builder.Build()
 
-	respGetBalance, err := client.ApiApiKey.GetBalance()
+	respGetBalance, err := client.ApiApiKey.ApiKeyBalanceGet()
 	if err != nil {
 		fmt.Printf("API call failed (GetBalance): %v", err)
 		return
 	}
-	mysdk.PrettyPrint(respGetBalance)
+	aiozaiplatformgosdk.PrettyPrint(respGetBalance)
 	fmt.Println(*respGetBalance.Status)
-	fmt.Println(*respGetBalance.Data.FreeBalance)
+	fmt.Println(*respGetBalance.Data.WalletAddress)
 }
 
 ```
