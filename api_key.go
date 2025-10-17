@@ -8,30 +8,30 @@ import (
 )
 
 type ApiKeyServiceI interface {
-	GetBalanceWithContext(ctx context.Context) (*ResponseWalletWithAddressResponse, error)
-	GetBalance() (*ResponseWalletWithAddressResponse, error)
-	GetApiKeyPermissionWithContext(ctx context.Context) (*ResponseGetApiKeyPermissionResponse, error)
-	GetApiKeyPermission() (*ResponseGetApiKeyPermissionResponse, error)
-	GetTaskHistory(limit int, offset int) (*ResponseApiKeyHistoryListResponse, error)
-	GetTaskHistoryWithContext(ctx context.Context, limit int, offset int) (*ResponseApiKeyHistoryListResponse, error)
-	GetTaskResult(taskId string) (*ResponseGetTaskResultResponse, error)
-	GetTaskResultWithContext(ctx context.Context, taskId string) (*ResponseGetTaskResultResponse, error)
-	GetApiKeyStatisticsWithContext(ctx context.Context, request RequestGetApiKeyStatisticsByModelIdRequest) (*ResponseGetTaskStatisticsResponse, error)
-	GetApiKeyStatistics(request RequestGetApiKeyStatisticsByModelIdRequest) (*ResponseGetTaskStatisticsResponse, error)
-	CreateTask(request RequestDistributeTaskRequest) (*ResponseDistributeTaskResponse, error)
-	CreateTaskWithContext(ctx context.Context, request RequestDistributeTaskRequest) (*ResponseDistributeTaskResponse, error)
-	CancelTaskWithContext(ctx context.Context, taskId string) (*ResponseSuccessResponse, error)
-	CancelTask(taskId string) (*ResponseSuccessResponse, error)
+	ApiKeyBalanceGetWithContext(ctx context.Context) (*ResponseWalletWithAddressResponse, error)
+	ApiKeyBalanceGet() (*ResponseWalletWithAddressResponse, error)
+	ApiKeyPermissionGetWithContext(ctx context.Context) (*ResponseGetApiKeyPermissionResponse, error)
+	ApiKeyPermissionGet() (*ResponseGetApiKeyPermissionResponse, error)
+	ApiKeyTaskHistoriesGet(limit int, offset int) (*ResponseApiKeyHistoryListResponse, error)
+	ApiKeyTaskHistoriesGetWithContext(ctx context.Context, limit int, offset int) (*ResponseApiKeyHistoryListResponse, error)
+	ApiKeyTaskIdResultGet(taskId string) (*ResponseGetTaskResultResponse, error)
+	ApiKeyTaskIdResultGetWithContext(ctx context.Context, taskId string) (*ResponseGetTaskResultResponse, error)
+	ApiKeyStatisticsPostWithContext(ctx context.Context, request RequestGetApiKeyStatisticsByModelIdRequest) (*ResponseGetTaskStatisticsResponse, error)
+	ApiKeyStatisticsPost(request RequestGetApiKeyStatisticsByModelIdRequest) (*ResponseGetTaskStatisticsResponse, error)
+	ApiKeyTaskPost(request RequestDistributeTaskRequest) (*ResponseDistributeTaskResponse, error)
+	ApiKeyTaskPostWithContext(ctx context.Context, request RequestDistributeTaskRequest) (*ResponseDistributeTaskResponse, error)
+	ApiKeyTaskIdCancelDeleteWithContext(ctx context.Context, taskId string) (*ResponseSuccessResponse, error)
+	ApiKeyTaskIdCancelDelete(taskId string) (*ResponseSuccessResponse, error)
 }
 
 type ApiKeyService struct {
 	Client *ClientV2
 }
 
-func (service *ApiKeyService) CancelTask(taskId string) (*ResponseSuccessResponse, error) {
-	return service.CancelTaskWithContext(context.Background(), taskId)
+func (service *ApiKeyService) ApiKeyTaskIdCancelDelete(taskId string) (*ResponseSuccessResponse, error) {
+	return service.ApiKeyTaskIdCancelDeleteWithContext(context.Background(), taskId)
 }
-func (service *ApiKeyService) CancelTaskWithContext(ctx context.Context, taskId string) (*ResponseSuccessResponse, error) {
+func (service *ApiKeyService) ApiKeyTaskIdCancelDeleteWithContext(ctx context.Context, taskId string) (*ResponseSuccessResponse, error) {
 	endpoint := fmt.Sprintf("/api-key/task/%s/cancel", taskId)
 
 	localVarHeaderParams := make(map[string]string)
@@ -51,10 +51,10 @@ func (service *ApiKeyService) CancelTaskWithContext(ctx context.Context, taskId 
 	return res, nil
 }
 
-func (service *ApiKeyService) GetBalance() (*ResponseWalletWithAddressResponse, error) {
-	return service.GetBalanceWithContext(context.Background())
+func (service *ApiKeyService) ApiKeyBalanceGet() (*ResponseWalletWithAddressResponse, error) {
+	return service.ApiKeyBalanceGetWithContext(context.Background())
 }
-func (service *ApiKeyService) GetBalanceWithContext(ctx context.Context) (*ResponseWalletWithAddressResponse, error) {
+func (service *ApiKeyService) ApiKeyBalanceGetWithContext(ctx context.Context) (*ResponseWalletWithAddressResponse, error) {
 	var localVarPostBody any
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -72,10 +72,10 @@ func (service *ApiKeyService) GetBalanceWithContext(ctx context.Context) (*Respo
 	return res, nil
 }
 
-func (service *ApiKeyService) GetApiKeyPermission() (*ResponseGetApiKeyPermissionResponse, error) {
-	return service.GetApiKeyPermissionWithContext(context.Background())
+func (service *ApiKeyService) ApiKeyPermissionGet() (*ResponseGetApiKeyPermissionResponse, error) {
+	return service.ApiKeyPermissionGetWithContext(context.Background())
 }
-func (service *ApiKeyService) GetApiKeyPermissionWithContext(ctx context.Context) (*ResponseGetApiKeyPermissionResponse, error) {
+func (service *ApiKeyService) ApiKeyPermissionGetWithContext(ctx context.Context) (*ResponseGetApiKeyPermissionResponse, error) {
 	var localVarPostBody any
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -93,10 +93,10 @@ func (service *ApiKeyService) GetApiKeyPermissionWithContext(ctx context.Context
 	return res, nil
 }
 
-func (service *ApiKeyService) CreateTask(request RequestDistributeTaskRequest) (*ResponseDistributeTaskResponse, error) {
-	return service.CreateTaskWithContext(context.Background(), request)
+func (service *ApiKeyService) ApiKeyTaskPost(request RequestDistributeTaskRequest) (*ResponseDistributeTaskResponse, error) {
+	return service.ApiKeyTaskPostWithContext(context.Background(), request)
 }
-func (service *ApiKeyService) CreateTaskWithContext(ctx context.Context, request RequestDistributeTaskRequest) (*ResponseDistributeTaskResponse, error) {
+func (service *ApiKeyService) ApiKeyTaskPostWithContext(ctx context.Context, request RequestDistributeTaskRequest) (*ResponseDistributeTaskResponse, error) {
 	localVarQueryParams := url.Values{}
 
 	localVarHeaderParams := map[string]string{}
@@ -120,10 +120,10 @@ func (service *ApiKeyService) CreateTaskWithContext(ctx context.Context, request
 	return res, nil
 }
 
-func (service *ApiKeyService) GetApiKeyStatistics(request RequestGetApiKeyStatisticsByModelIdRequest) (*ResponseGetTaskStatisticsResponse, error) {
-	return service.GetApiKeyStatisticsWithContext(context.Background(), request)
+func (service *ApiKeyService) ApiKeyStatisticsPost(request RequestGetApiKeyStatisticsByModelIdRequest) (*ResponseGetTaskStatisticsResponse, error) {
+	return service.ApiKeyStatisticsPostWithContext(context.Background(), request)
 }
-func (service *ApiKeyService) GetApiKeyStatisticsWithContext(
+func (service *ApiKeyService) ApiKeyStatisticsPostWithContext(
 	ctx context.Context,
 	request RequestGetApiKeyStatisticsByModelIdRequest,
 ) (*ResponseGetTaskStatisticsResponse, error) {
@@ -150,10 +150,10 @@ func (service *ApiKeyService) GetApiKeyStatisticsWithContext(
 	return res, nil
 }
 
-func (service *ApiKeyService) GetTaskResult(taskId string) (*ResponseGetTaskResultResponse, error) {
-	return service.GetTaskResultWithContext(context.Background(), taskId)
+func (service *ApiKeyService) ApiKeyTaskIdResultGet(taskId string) (*ResponseGetTaskResultResponse, error) {
+	return service.ApiKeyTaskIdResultGetWithContext(context.Background(), taskId)
 }
-func (service *ApiKeyService) GetTaskResultWithContext(ctx context.Context, taskId string) (*ResponseGetTaskResultResponse, error) {
+func (service *ApiKeyService) ApiKeyTaskIdResultGetWithContext(ctx context.Context, taskId string) (*ResponseGetTaskResultResponse, error) {
 	endpoint := fmt.Sprintf("/api-key/task/%s/result", taskId)
 
 	localVarHeaderParams := make(map[string]string)
@@ -172,10 +172,10 @@ func (service *ApiKeyService) GetTaskResultWithContext(ctx context.Context, task
 
 	return res, nil
 }
-func (service *ApiKeyService) GetTaskHistory(limit int, offset int) (*ResponseApiKeyHistoryListResponse, error) {
-	return service.GetTaskHistoryWithContext(context.Background(), limit, offset)
+func (service *ApiKeyService) ApiKeyTaskHistoriesGet(limit int, offset int) (*ResponseApiKeyHistoryListResponse, error) {
+	return service.ApiKeyTaskHistoriesGetWithContext(context.Background(), limit, offset)
 }
-func (service *ApiKeyService) GetTaskHistoryWithContext(ctx context.Context, limit int, offset int) (*ResponseApiKeyHistoryListResponse, error) {
+func (service *ApiKeyService) ApiKeyTaskHistoriesGetWithContext(ctx context.Context, limit int, offset int) (*ResponseApiKeyHistoryListResponse, error) {
 	localVarPath := "/api-key/task/histories"
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

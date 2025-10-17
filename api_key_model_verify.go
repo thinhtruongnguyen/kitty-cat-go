@@ -8,30 +8,30 @@ import (
 )
 
 type ApiKeyModelVerifyServiceI interface {
-	GetModelVersioningByTaskIdWithContext(ctx context.Context, taskId string) (*ResponseModelVersioningResponse, error)
-	GetModelVersioningByTaskId(taskId string) (*ResponseModelVersioningResponse, error)
-	GetVerifyPlatformTaskByIdWithContext(ctx context.Context, taskId string) (*ResponseQueueTaskResponse, error)
-	GetVerifyPlatformTaskById(taskId string) (*ResponseQueueTaskResponse, error)
-	GetListVerifyModelTaskByCommitHashAndStatusWithContext(ctx context.Context, modelId, commitHash, status string) (*ResponseModelVersioningGroupLiteListResponse, error)
-	GetListVerifyModelTaskByCommitHashAndStatus(modelId, commitHash, status string) (*ResponseModelVersioningGroupLiteListResponse, error)
-	PreCheckToVerifyModel(modelId string, request RequestCheckValidToVerifyAiModelRequest) (*ResponseCheckValidToVerifyAiModelResponse, error)
-	PreCheckToVerifyModelWithContext(ctx context.Context, modelId string, request RequestCheckValidToVerifyAiModelRequest) (*ResponseCheckValidToVerifyAiModelResponse, error)
-	VerifyModelWithContext(ctx context.Context, modelId string, request RequestVerifyAiModelRequest) (*ResponseVerifyAiModelResponse, error)
-	VerifyModel(modelId string, request RequestVerifyAiModelRequest) (*ResponseVerifyAiModelResponse, error)
-	CalculateCostToVerifyModelWithContext(ctx context.Context, modelId string, request RequestCalculateCostToVerifyAiModelRequest) (*ResponseEstimateCostResponse, error)
-	CalculateCostToVerifyModel(modelId string, request RequestCalculateCostToVerifyAiModelRequest) (*ResponseEstimateCostResponse, error)
+	ApiKeyModelVerifyHubTaskIdGetWithContext(ctx context.Context, taskId string) (*ResponseModelVersioningResponse, error)
+	ApiKeyModelVerifyHubTaskIdGet(taskId string) (*ResponseModelVersioningResponse, error)
+	ApiKeyModelVerifyPlatformTaskIdGetWithContext(ctx context.Context, taskId string) (*ResponseQueueTaskResponse, error)
+	ApiKeyModelVerifyPlatformTaskIdGet(taskId string) (*ResponseQueueTaskResponse, error)
+	ApiKeyModelIdVerifyTaskGetWithContext(ctx context.Context, modelId, commitHash, status string) (*ResponseModelVersioningGroupLiteListResponse, error)
+	ApiKeyModelIdVerifyTaskGet(modelId, commitHash, status string) (*ResponseModelVersioningGroupLiteListResponse, error)
+	ApiKeyModelIdPreVerifyPost(modelId string, request RequestCheckValidToVerifyAiModelRequest) (*ResponseCheckValidToVerifyAiModelResponse, error)
+	ApiKeyModelIdPreVerifyPostWithContext(ctx context.Context, modelId string, request RequestCheckValidToVerifyAiModelRequest) (*ResponseCheckValidToVerifyAiModelResponse, error)
+	ApiKeyModelIdVerifyPostWithContext(ctx context.Context, modelId string, request RequestVerifyAiModelRequest) (*ResponseVerifyAiModelResponse, error)
+	ApiKeyModelIdVerifyPost(modelId string, request RequestVerifyAiModelRequest) (*ResponseVerifyAiModelResponse, error)
+	ApiKeyModelIdVerifyCostPostWithContext(ctx context.Context, modelId string, request RequestCalculateCostToVerifyAiModelRequest) (*ResponseEstimateCostResponse, error)
+	ApiKeyModelIdVerifyCostPost(modelId string, request RequestCalculateCostToVerifyAiModelRequest) (*ResponseEstimateCostResponse, error)
 }
 
 type ApiKeyModelVerifyService struct {
 	Client *ClientV2
 }
 
-func (service *ApiKeyModelVerifyService) CalculateCostToVerifyModel(
+func (service *ApiKeyModelVerifyService) ApiKeyModelIdVerifyCostPost(
 	modelId string,
 	request RequestCalculateCostToVerifyAiModelRequest) (*ResponseEstimateCostResponse, error) {
-	return service.CalculateCostToVerifyModelWithContext(context.Background(), modelId, request)
+	return service.ApiKeyModelIdVerifyCostPostWithContext(context.Background(), modelId, request)
 }
-func (service *ApiKeyModelVerifyService) CalculateCostToVerifyModelWithContext(
+func (service *ApiKeyModelVerifyService) ApiKeyModelIdVerifyCostPostWithContext(
 	ctx context.Context, modelId string,
 	request RequestCalculateCostToVerifyAiModelRequest) (*ResponseEstimateCostResponse, error) {
 	localVarPath := fmt.Sprintf("/api-key/model/%s/verify/cost", modelId)
@@ -60,11 +60,11 @@ func (service *ApiKeyModelVerifyService) CalculateCostToVerifyModelWithContext(
 
 	return res, nil
 }
-func (service *ApiKeyModelVerifyService) VerifyModel(
+func (service *ApiKeyModelVerifyService) ApiKeyModelIdVerifyPost(
 	modelId string, request RequestVerifyAiModelRequest) (*ResponseVerifyAiModelResponse, error) {
-	return service.VerifyModelWithContext(context.Background(), modelId, request)
+	return service.ApiKeyModelIdVerifyPostWithContext(context.Background(), modelId, request)
 }
-func (service *ApiKeyModelVerifyService) VerifyModelWithContext(
+func (service *ApiKeyModelVerifyService) ApiKeyModelIdVerifyPostWithContext(
 	ctx context.Context, modelId string, request RequestVerifyAiModelRequest) (*ResponseVerifyAiModelResponse, error) {
 	localVarPath := fmt.Sprintf("/api-key/model/%s/verify", modelId)
 
@@ -93,13 +93,13 @@ func (service *ApiKeyModelVerifyService) VerifyModelWithContext(
 	return res, nil
 }
 
-func (service *ApiKeyModelVerifyService) PreCheckToVerifyModel(
+func (service *ApiKeyModelVerifyService) ApiKeyModelIdPreVerifyPost(
 	modelId string,
 	request RequestCheckValidToVerifyAiModelRequest,
 ) (*ResponseCheckValidToVerifyAiModelResponse, error) {
-	return service.PreCheckToVerifyModelWithContext(context.Background(), modelId, request)
+	return service.ApiKeyModelIdPreVerifyPostWithContext(context.Background(), modelId, request)
 }
-func (service *ApiKeyModelVerifyService) PreCheckToVerifyModelWithContext(
+func (service *ApiKeyModelVerifyService) ApiKeyModelIdPreVerifyPostWithContext(
 	ctx context.Context,
 	modelId string,
 	request RequestCheckValidToVerifyAiModelRequest,
@@ -132,12 +132,12 @@ func (service *ApiKeyModelVerifyService) PreCheckToVerifyModelWithContext(
 	return res, nil
 }
 
-func (service *ApiKeyModelVerifyService) GetListVerifyModelTaskByCommitHashAndStatus(
+func (service *ApiKeyModelVerifyService) ApiKeyModelIdVerifyTaskGet(
 	modelId, commitHash, status string,
 ) (*ResponseModelVersioningGroupLiteListResponse, error) {
-	return service.GetListVerifyModelTaskByCommitHashAndStatusWithContext(context.Background(), modelId, commitHash, status)
+	return service.ApiKeyModelIdVerifyTaskGetWithContext(context.Background(), modelId, commitHash, status)
 }
-func (service *ApiKeyModelVerifyService) GetListVerifyModelTaskByCommitHashAndStatusWithContext(
+func (service *ApiKeyModelVerifyService) ApiKeyModelIdVerifyTaskGetWithContext(
 	ctx context.Context,
 	modelId, commitHash, status string,
 ) (*ResponseModelVersioningGroupLiteListResponse, error) {
@@ -170,10 +170,10 @@ func (service *ApiKeyModelVerifyService) GetListVerifyModelTaskByCommitHashAndSt
 
 	return res, nil
 }
-func (service *ApiKeyModelVerifyService) GetVerifyPlatformTaskById(taskId string) (*ResponseQueueTaskResponse, error) {
-	return service.GetVerifyPlatformTaskByIdWithContext(context.Background(), taskId)
+func (service *ApiKeyModelVerifyService) ApiKeyModelVerifyPlatformTaskIdGet(taskId string) (*ResponseQueueTaskResponse, error) {
+	return service.ApiKeyModelVerifyPlatformTaskIdGetWithContext(context.Background(), taskId)
 }
-func (service *ApiKeyModelVerifyService) GetVerifyPlatformTaskByIdWithContext(ctx context.Context, taskId string) (*ResponseQueueTaskResponse, error) {
+func (service *ApiKeyModelVerifyService) ApiKeyModelVerifyPlatformTaskIdGetWithContext(ctx context.Context, taskId string) (*ResponseQueueTaskResponse, error) {
 	endpoint := fmt.Sprintf("/api-key/model/verify/platform/task/%s", taskId)
 	var localVarPostBody any
 	localVarHeaderParams := make(map[string]string)
@@ -191,10 +191,10 @@ func (service *ApiKeyModelVerifyService) GetVerifyPlatformTaskByIdWithContext(ct
 
 	return res, nil
 }
-func (service *ApiKeyModelVerifyService) GetModelVersioningByTaskId(taskId string) (*ResponseModelVersioningResponse, error) {
-	return service.GetModelVersioningByTaskIdWithContext(context.Background(), taskId)
+func (service *ApiKeyModelVerifyService) ApiKeyModelVerifyHubTaskIdGet(taskId string) (*ResponseModelVersioningResponse, error) {
+	return service.ApiKeyModelVerifyHubTaskIdGetWithContext(context.Background(), taskId)
 }
-func (service *ApiKeyModelVerifyService) GetModelVersioningByTaskIdWithContext(ctx context.Context, taskId string) (*ResponseModelVersioningResponse, error) {
+func (service *ApiKeyModelVerifyService) ApiKeyModelVerifyHubTaskIdGetWithContext(ctx context.Context, taskId string) (*ResponseModelVersioningResponse, error) {
 	endpoint := fmt.Sprintf("/api-key/model/verify/hub/task/%s", taskId)
 	var localVarPostBody any
 	localVarHeaderParams := make(map[string]string)

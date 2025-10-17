@@ -35,7 +35,7 @@ func TestApiKeyModelVerifyServiceCalculateCostToVerifyModel(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			resp, err := testClient.ApiKeyModelVerify.CalculateCostToVerifyModel(tt.modelId, tt.request)
+			resp, err := testClient.ApiKeyModelVerify.ApiKeyModelIdVerifyCostPost(tt.modelId, tt.request)
 
 			if tt.wantErr {
 				assert.Error(t, err)
@@ -76,7 +76,7 @@ func TestApiKeyModelVerifyServiceVerifyModel(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			resp, err := testClient.ApiKeyModelVerify.VerifyModel(tt.modelId, tt.request)
+			resp, err := testClient.ApiKeyModelVerify.ApiKeyModelIdVerifyPost(tt.modelId, tt.request)
 
 			if tt.wantErr {
 				assert.Error(t, err)
@@ -117,7 +117,7 @@ func TestApiKeyModelVerifyServicePreCheckToVerifyModel(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			resp, err := testClient.ApiKeyModelVerify.PreCheckToVerifyModel(tt.modelId, tt.request)
+			resp, err := testClient.ApiKeyModelVerify.ApiKeyModelIdPreVerifyPost(tt.modelId, tt.request)
 
 			if tt.wantErr {
 				assert.Error(t, err)
@@ -158,7 +158,7 @@ func TestApiKeyModelVerifyServiceGetListVerifyModelTaskByCommitHashAndStatus(t *
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			resp, err := testClient.ApiKeyModelVerify.GetListVerifyModelTaskByCommitHashAndStatus(
+			resp, err := testClient.ApiKeyModelVerify.ApiKeyModelIdVerifyTaskGet(
 				tt.modelId, tt.commitHash, tt.status,
 			)
 
@@ -195,7 +195,7 @@ func TestApiKeyModelVerifyServiceGetVerifyPlatformTaskById(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			resp, err := testClient.ApiKeyModelVerify.GetVerifyPlatformTaskById(tt.taskID)
+			resp, err := testClient.ApiKeyModelVerify.ApiKeyModelVerifyPlatformTaskIdGet(tt.taskID)
 
 			if tt.wantErr {
 				assert.Error(t, err)
@@ -230,7 +230,7 @@ func TestApiKeyModelVerifyServiceGetModelVersioningByTaskId(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			resp, err := testClient.ApiKeyModelVerify.GetModelVersioningByTaskId(tt.taskID)
+			resp, err := testClient.ApiKeyModelVerify.ApiKeyModelVerifyHubTaskIdGet(tt.taskID)
 
 			if tt.wantErr {
 				assert.Error(t, err)

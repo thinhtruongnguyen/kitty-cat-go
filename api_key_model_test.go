@@ -28,7 +28,7 @@ func TestApiKeyModelServiceGetModelTaskCost(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			resp, err := testClient.ApiKeyModel.GetModelTaskCost(tt.modelId)
+			resp, err := testClient.ApiKeyModel.ApiKeyModelIdTaskCostGet(tt.modelId)
 
 			if tt.wantErr {
 				assert.Error(t, err)
@@ -65,7 +65,7 @@ func TestApiKeyModelServiceGetModelStatistics(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			resp, err := testClient.ApiKeyModel.GetModelStatistics(tt.modelId, tt.request)
+			resp, err := testClient.ApiKeyModel.ApiKeyModelIdStatisticsPost(tt.modelId, tt.request)
 
 			if tt.wantErr {
 				assert.Error(t, err)
@@ -97,7 +97,7 @@ func TestApiKeyModelServiceCheckModelIsServing(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			resp, err := testClient.ApiKeyModel.CheckModelIsServing(tt.modelId)
+			resp, err := testClient.ApiKeyModel.ApiKeyModelIdServingGet(tt.modelId)
 
 			if tt.wantErr {
 				assert.Error(t, err)
@@ -141,7 +141,7 @@ func TestApiKeyModelServiceGetModelInfo(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			resp, err := testClient.ApiKeyModel.GetModelInfo(tt.modelId)
+			resp, err := testClient.ApiKeyModel.ApiKeyModelIdInfoGet(tt.modelId)
 
 			if tt.wantErr {
 				assert.Error(t, err)
@@ -163,29 +163,29 @@ func TestApiKeyModelServiceGetModelInfo(t *testing.T) {
 	}
 }
 
-func TestApiKeyModelServiceGetListPlatformsSupport(t *testing.T) {
-	tests := []struct {
-		name    string
-		wantErr bool
-	}{
-		{
-			name:    "Valid ListPlatformsSupport",
-			wantErr: false,
-		},
-	}
+// func TestApiKeyModelServiceGetListPlatformsSupport(t *testing.T) {
+// 	tests := []struct {
+// 		name    string
+// 		wantErr bool
+// 	}{
+// 		{
+// 			name:    "Valid ListPlatformsSupport",
+// 			wantErr: false,
+// 		},
+// 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			resp, err := testClient.ApiKeyModel.GetListPlatformsSupport()
+// 	for _, tt := range tests {
+// 		t.Run(tt.name, func(t *testing.T) {
+// 			resp, err := testClient.ApiKeyModel.GetListPlatformsSupport()
 
-			if tt.wantErr {
-				assert.Error(t, err)
-				assert.Nil(t, resp)
-			} else {
-				assert.NoError(t, err)
-				assert.NotNil(t, resp)
-				assert.NotNil(t, resp.Data)
-			}
-		})
-	}
-}
+// 			if tt.wantErr {
+// 				assert.Error(t, err)
+// 				assert.Nil(t, resp)
+// 			} else {
+// 				assert.NoError(t, err)
+// 				assert.NotNil(t, resp)
+// 				assert.NotNil(t, resp.Data)
+// 			}
+// 		})
+// 	}
+// }

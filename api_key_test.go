@@ -31,7 +31,7 @@ func TestApiKeyServiceCreateTask(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			resp, err := testClient.ApiApiKey.CreateTask(tt.request)
+			resp, err := testClient.ApiApiKey.ApiKeyTaskPost(tt.request)
 
 			if tt.wantErr {
 				assert.Error(t, err)
@@ -65,7 +65,7 @@ func TestApiKeyServiceGetTaskResult(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			resp, err := testClient.ApiApiKey.GetTaskResult(tt.taskID)
+			resp, err := testClient.ApiApiKey.ApiKeyTaskIdResultGet(tt.taskID)
 
 			if tt.wantError {
 				if err != nil {
@@ -108,7 +108,7 @@ func TestApiKeyServiceGetTaskHistory(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			resp, err := testClient.ApiApiKey.GetTaskHistory(tt.limit, tt.offset)
+			resp, err := testClient.ApiApiKey.ApiKeyTaskHistoriesGet(tt.limit, tt.offset)
 
 			if tt.wantErr {
 				assert.Error(t, err)
@@ -135,7 +135,7 @@ func TestApiKeyServiceGetApiKeyPermission(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			resp, err := testClient.ApiApiKey.GetApiKeyPermission()
+			resp, err := testClient.ApiApiKey.ApiKeyPermissionGet()
 			if tt.wantErr {
 				assert.Error(t, err)
 				assert.Nil(t, resp)
@@ -163,7 +163,7 @@ func TestApiKeyServiceGetBalance(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			resp, err := testClient.ApiApiKey.GetBalance()
+			resp, err := testClient.ApiApiKey.ApiKeyBalanceGet()
 
 			if tt.wantErr {
 				assert.Error(t, err)

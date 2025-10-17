@@ -8,26 +8,26 @@ import (
 )
 
 type ApiKeyModelServiceI interface {
-	GetModelInfo(modelId string) (*ResponseApiKeyInfoResponse, error)
-	GetModelInfoWithContext(ctx context.Context, modelId string) (*ResponseApiKeyInfoResponse, error)
-	GetListPlatformsSupportWithContext(ctx context.Context) (*ResponseGetListPlatformSupportResponse, error)
-	GetListPlatformsSupport() (*ResponseGetListPlatformSupportResponse, error)
-	CheckModelIsServing(modelId string) (*ResponseCheckModelIsServingResponse, error)
-	CheckModelIsServingWithContext(ctx context.Context, modelId string) (*ResponseCheckModelIsServingResponse, error)
-	GetModelStatistics(modelId string, request RequestGetApiKeyStatisticsByModelIdRequest) (*ResponseGetTaskStatisticsResponse, error)
-	GetModelStatisticsWithContext(ctx context.Context, modelId string, request RequestGetApiKeyStatisticsByModelIdRequest) (*ResponseGetTaskStatisticsResponse, error)
-	GetModelTaskCostWithContext(ctx context.Context, modelId string) (*ResponseEstimateCostResponse, error)
-	GetModelTaskCost(modelId string) (*ResponseEstimateCostResponse, error)
+	ApiKeyModelIdInfoGet(modelId string) (*ResponseApiKeyInfoResponse, error)
+	ApiKeyModelIdInfoGetWithContext(ctx context.Context, modelId string) (*ResponseApiKeyInfoResponse, error)
+	ApiKeyModelVerifySupportPlatformsGetWithContext(ctx context.Context) (*ResponseGetListPlatformSupportResponse, error)
+	ApiKeyModelVerifySupportPlatformsGet() (*ResponseGetListPlatformSupportResponse, error)
+	ApiKeyModelIdServingGet(modelId string) (*ResponseCheckModelIsServingResponse, error)
+	ApiKeyModelIdServingGetWithContext(ctx context.Context, modelId string) (*ResponseCheckModelIsServingResponse, error)
+	ApiKeyModelIdStatisticsPost(modelId string, request RequestGetApiKeyStatisticsByModelIdRequest) (*ResponseGetTaskStatisticsResponse, error)
+	ApiKeyModelIdStatisticsPostWithContext(ctx context.Context, modelId string, request RequestGetApiKeyStatisticsByModelIdRequest) (*ResponseGetTaskStatisticsResponse, error)
+	ApiKeyModelIdTaskCostGetWithContext(ctx context.Context, modelId string) (*ResponseEstimateCostResponse, error)
+	ApiKeyModelIdTaskCostGet(modelId string) (*ResponseEstimateCostResponse, error)
 }
 
 type ApiKeyModelService struct {
 	Client *ClientV2
 }
 
-func (service *ApiKeyModelService) GetModelTaskCost(modelId string) (*ResponseEstimateCostResponse, error) {
-	return service.GetModelTaskCostWithContext(context.Background(), modelId)
+func (service *ApiKeyModelService) ApiKeyModelIdTaskCostGet(modelId string) (*ResponseEstimateCostResponse, error) {
+	return service.ApiKeyModelIdTaskCostGetWithContext(context.Background(), modelId)
 }
-func (service *ApiKeyModelService) GetModelTaskCostWithContext(ctx context.Context, modelId string) (*ResponseEstimateCostResponse, error) {
+func (service *ApiKeyModelService) ApiKeyModelIdTaskCostGetWithContext(ctx context.Context, modelId string) (*ResponseEstimateCostResponse, error) {
 	localVarPath := fmt.Sprintf("/api-key/model/%s/task/cost", url.PathEscape(modelId))
 	req, err := service.Client.prepareRequest(ctx, http.MethodGet, localVarPath, nil, nil, nil)
 	if err != nil {
@@ -41,13 +41,13 @@ func (service *ApiKeyModelService) GetModelTaskCostWithContext(ctx context.Conte
 	return res, nil
 }
 
-func (service *ApiKeyModelService) GetModelStatistics(
+func (service *ApiKeyModelService) ApiKeyModelIdStatisticsPost(
 	modelId string,
 	request RequestGetApiKeyStatisticsByModelIdRequest,
 ) (*ResponseGetTaskStatisticsResponse, error) {
-	return service.GetModelStatisticsWithContext(context.Background(), modelId, request)
+	return service.ApiKeyModelIdStatisticsPostWithContext(context.Background(), modelId, request)
 }
-func (service *ApiKeyModelService) GetModelStatisticsWithContext(
+func (service *ApiKeyModelService) ApiKeyModelIdStatisticsPostWithContext(
 	ctx context.Context,
 	modelId string,
 	request RequestGetApiKeyStatisticsByModelIdRequest,
@@ -78,10 +78,10 @@ func (service *ApiKeyModelService) GetModelStatisticsWithContext(
 	return res, nil
 }
 
-func (service *ApiKeyModelService) CheckModelIsServing(modelId string) (*ResponseCheckModelIsServingResponse, error) {
-	return service.CheckModelIsServingWithContext(context.Background(), modelId)
+func (service *ApiKeyModelService) ApiKeyModelIdServingGet(modelId string) (*ResponseCheckModelIsServingResponse, error) {
+	return service.ApiKeyModelIdServingGetWithContext(context.Background(), modelId)
 }
-func (service *ApiKeyModelService) CheckModelIsServingWithContext(ctx context.Context, modelId string) (*ResponseCheckModelIsServingResponse, error) {
+func (service *ApiKeyModelService) ApiKeyModelIdServingGetWithContext(ctx context.Context, modelId string) (*ResponseCheckModelIsServingResponse, error) {
 	localVarPath := fmt.Sprintf("/api-key/model/%s/serving", url.PathEscape(modelId))
 
 	req, err := service.Client.prepareRequest(ctx, http.MethodGet, localVarPath, nil, nil, nil)
@@ -97,10 +97,10 @@ func (service *ApiKeyModelService) CheckModelIsServingWithContext(ctx context.Co
 	return res, nil
 }
 
-func (service *ApiKeyModelService) GetListPlatformsSupport() (*ResponseGetListPlatformSupportResponse, error) {
-	return service.GetListPlatformsSupportWithContext(context.Background())
+func (service *ApiKeyModelService) ApiKeyModelVerifySupportPlatformsGet() (*ResponseGetListPlatformSupportResponse, error) {
+	return service.ApiKeyModelVerifySupportPlatformsGetWithContext(context.Background())
 }
-func (service *ApiKeyModelService) GetListPlatformsSupportWithContext(ctx context.Context) (*ResponseGetListPlatformSupportResponse, error) {
+func (service *ApiKeyModelService) ApiKeyModelVerifySupportPlatformsGetWithContext(ctx context.Context) (*ResponseGetListPlatformSupportResponse, error) {
 	localVarPath := "/api-key/model/verify/support/platforms"
 
 	req, err := service.Client.prepareRequest(ctx, http.MethodGet, localVarPath, nil, nil, nil)
@@ -116,10 +116,10 @@ func (service *ApiKeyModelService) GetListPlatformsSupportWithContext(ctx contex
 	return res, nil
 }
 
-func (service *ApiKeyModelService) GetModelInfo(modelId string) (*ResponseApiKeyInfoResponse, error) {
-	return service.GetModelInfoWithContext(context.Background(), modelId)
+func (service *ApiKeyModelService) ApiKeyModelIdInfoGet(modelId string) (*ResponseApiKeyInfoResponse, error) {
+	return service.ApiKeyModelIdInfoGetWithContext(context.Background(), modelId)
 }
-func (service *ApiKeyModelService) GetModelInfoWithContext(ctx context.Context, modelId string) (*ResponseApiKeyInfoResponse, error) {
+func (service *ApiKeyModelService) ApiKeyModelIdInfoGetWithContext(ctx context.Context, modelId string) (*ResponseApiKeyInfoResponse, error) {
 	localVarPath := fmt.Sprintf("/api-key/model/%s/info", url.PathEscape(modelId))
 
 	req, err := service.Client.prepareRequest(ctx, http.MethodGet, localVarPath, nil, nil, nil)

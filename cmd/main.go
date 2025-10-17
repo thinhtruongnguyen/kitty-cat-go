@@ -91,7 +91,7 @@ func main() {
 	// }
 	// aiozaiplatformgosdk.PrettyPrint(respGetTaskHistory)
 
-	respGetBalance, err := client.ApiApiKey.GetBalance()
+	respGetBalance, err := client.ApiApiKey.ApiKeyBalanceGet()
 	if err != nil {
 		fmt.Printf("API call failed (GetBalance): %v", err)
 		return
@@ -230,7 +230,7 @@ func main() {
 		PageSize:       10,
 	}
 
-	respGetCommitHistory, err := client.ApiKeyRepository.GetCommitHistory(requestGetCommitHistoryRequest)
+	respGetCommitHistory, err := client.ApiKeyRepository.ApiKeyRepositoryOwnerUsernameRepositoryNameCommitHistoryGet(requestGetCommitHistoryRequest)
 	if err != nil {
 		fmt.Printf("API call failed(GetCommitHistoryRequest): %v", err)
 		return

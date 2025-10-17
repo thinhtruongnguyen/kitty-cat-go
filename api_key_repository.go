@@ -8,21 +8,21 @@ import (
 )
 
 type ApiKeyRepositoryServiceI interface {
-	GetCommitHistoryWithContext(ctx context.Context, req GetCommitHistoryRequest) (*ResponseGetCommitHistoryResponse, error)
-	GetCommitHistory(req GetCommitHistoryRequest) (*ResponseGetCommitHistoryResponse, error)
+	ApiKeyRepositoryOwnerUsernameRepositoryNameCommitHistoryGetWithContext(ctx context.Context, req GetCommitHistoryRequest) (*ResponseGetCommitHistoryResponse, error)
+	ApiKeyRepositoryOwnerUsernameRepositoryNameCommitHistoryGet(req GetCommitHistoryRequest) (*ResponseGetCommitHistoryResponse, error)
 }
 
 type ApiKeyRepositoryService struct {
 	Client *ClientV2
 }
 
-func (service *ApiKeyRepositoryService) GetCommitHistory(
+func (service *ApiKeyRepositoryService) ApiKeyRepositoryOwnerUsernameRepositoryNameCommitHistoryGet(
 	req GetCommitHistoryRequest,
 ) (*ResponseGetCommitHistoryResponse, error) {
-	return service.GetCommitHistoryWithContext(context.Background(), req)
+	return service.ApiKeyRepositoryOwnerUsernameRepositoryNameCommitHistoryGetWithContext(context.Background(), req)
 }
 
-func (service *ApiKeyRepositoryService) GetCommitHistoryWithContext(
+func (service *ApiKeyRepositoryService) ApiKeyRepositoryOwnerUsernameRepositoryNameCommitHistoryGetWithContext(
 	ctx context.Context,
 	req GetCommitHistoryRequest,
 ) (*ResponseGetCommitHistoryResponse, error) {

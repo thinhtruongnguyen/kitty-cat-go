@@ -23,7 +23,7 @@ func TestApiKeyModelVersioningServiceDeleteModelVersioningByModelIdAndCommitHash
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			resp, err := testClient.ApiKeyModelVersioning.DeleteModelVersioningByModelIdAndCommitHash(tt.modelId, tt.commitHash)
+			resp, err := testClient.ApiKeyModelVersioning.ApiKeyModelIdVersioningDelete(tt.modelId, tt.commitHash)
 
 			if tt.wantErr {
 				assert.Error(t, err)
@@ -57,7 +57,7 @@ func TestApiKeyModelVersioningServiceChangeCurrentModelVersioningByModelIdAndCom
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			resp, err := testClient.ApiKeyModelVersioning.ChangeCurrentModelVersioningByModelIdAndCommitHash(
+			resp, err := testClient.ApiKeyModelVersioning.ApiKeyModelIdVersioningPut(
 				tt.modelId, tt.commitHash,
 			)
 
@@ -102,7 +102,7 @@ func TestApiKeyServiceGetListVerifiedModelVersioning(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			resp, err := testClient.ApiKeyModelVersioning.GetListVerifiedModelVersioning(
+			resp, err := testClient.ApiKeyModelVersioning.ApiKeyModelIdVersioningListGet(
 				tt.modelId, tt.offset, tt.limit, tt.verifyStatus,
 			)
 
@@ -141,7 +141,7 @@ func TestApiKeyModelVersioningServiceGetCurrentModelVersioningByModelId(t *testi
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			resp, err := testClient.ApiKeyModelVersioning.GetCurrentModelVersioningByModelId(tt.modelId)
+			resp, err := testClient.ApiKeyModelVersioning.ApiKeyModelIdVersioningGet(tt.modelId)
 
 			if tt.wantErr {
 				assert.Error(t, err)

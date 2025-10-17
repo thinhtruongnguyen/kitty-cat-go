@@ -8,14 +8,14 @@ import (
 )
 
 type ApiKeyModelVersioningServiceI interface {
-	GetCurrentModelVersioningByModelIdWithContext(ctx context.Context, modelId string) (*ResponseModelVersioningGroupLiteResponse, error)
-	GetCurrentModelVersioningByModelId(modelId string) (*ResponseModelVersioningGroupLiteResponse, error)
-	GetListVerifiedModelVersioningWithContext(ctx context.Context, modelId string, offset, limit int, verifyStatus string) (*ResponseGetListModelVersioningLiteResponse, error)
-	GetListVerifiedModelVersioning(modelId string, offset, limit int, verifyStatus string) (*ResponseGetListModelVersioningLiteResponse, error)
-	ChangeCurrentModelVersioningByModelIdAndCommitHash(modelId, commitHash string) (*ResponseSuccessResponse, error)
-	ChangeCurrentModelVersioningByModelIdAndCommitHashWithContext(ctx context.Context, modelId, commitHash string) (*ResponseSuccessResponse, error)
-	DeleteModelVersioningByModelIdAndCommitHashWithContext(ctx context.Context, modelId, commitHash string) (*ResponseSuccessResponse, error)
-	DeleteModelVersioningByModelIdAndCommitHash(modelId, commitHash string) (*ResponseSuccessResponse, error)
+	ApiKeyModelIdVersioningGetWithContext(ctx context.Context, modelId string) (*ResponseModelVersioningGroupLiteResponse, error)
+	ApiKeyModelIdVersioningGet(modelId string) (*ResponseModelVersioningGroupLiteResponse, error)
+	ApiKeyModelIdVersioningListGetWithContext(ctx context.Context, modelId string, offset, limit int, verifyStatus string) (*ResponseGetListModelVersioningLiteResponse, error)
+	ApiKeyModelIdVersioningListGet(modelId string, offset, limit int, verifyStatus string) (*ResponseGetListModelVersioningLiteResponse, error)
+	ApiKeyModelIdVersioningPut(modelId, commitHash string) (*ResponseSuccessResponse, error)
+	ApiKeyModelIdVersioningPutWithContext(ctx context.Context, modelId, commitHash string) (*ResponseSuccessResponse, error)
+	ApiKeyModelIdVersioningDeleteWithContext(ctx context.Context, modelId, commitHash string) (*ResponseSuccessResponse, error)
+	ApiKeyModelIdVersioningDelete(modelId, commitHash string) (*ResponseSuccessResponse, error)
 }
 
 type ApiKeyModelVersioningService struct {
@@ -24,12 +24,12 @@ type ApiKeyModelVersioningService struct {
 
 const modelVersioningPathFmt = "/api-key/model/%s/versioning"
 
-func (service *ApiKeyModelVersioningService) DeleteModelVersioningByModelIdAndCommitHash(
+func (service *ApiKeyModelVersioningService) ApiKeyModelIdVersioningDelete(
 	modelId, commitHash string,
 ) (*ResponseSuccessResponse, error) {
-	return service.DeleteModelVersioningByModelIdAndCommitHashWithContext(context.Background(), modelId, commitHash)
+	return service.ApiKeyModelIdVersioningDeleteWithContext(context.Background(), modelId, commitHash)
 }
-func (service *ApiKeyModelVersioningService) DeleteModelVersioningByModelIdAndCommitHashWithContext(
+func (service *ApiKeyModelVersioningService) ApiKeyModelIdVersioningDeleteWithContext(
 	ctx context.Context,
 	modelId, commitHash string,
 ) (*ResponseSuccessResponse, error) {
@@ -61,12 +61,12 @@ func (service *ApiKeyModelVersioningService) DeleteModelVersioningByModelIdAndCo
 
 	return res, nil
 }
-func (service *ApiKeyModelVersioningService) ChangeCurrentModelVersioningByModelIdAndCommitHash(
+func (service *ApiKeyModelVersioningService) ApiKeyModelIdVersioningPut(
 	modelId, commitHash string,
 ) (*ResponseSuccessResponse, error) {
-	return service.ChangeCurrentModelVersioningByModelIdAndCommitHashWithContext(context.Background(), modelId, commitHash)
+	return service.ApiKeyModelIdVersioningPutWithContext(context.Background(), modelId, commitHash)
 }
-func (service *ApiKeyModelVersioningService) ChangeCurrentModelVersioningByModelIdAndCommitHashWithContext(
+func (service *ApiKeyModelVersioningService) ApiKeyModelIdVersioningPutWithContext(
 	ctx context.Context,
 	modelId, commitHash string,
 ) (*ResponseSuccessResponse, error) {
@@ -98,14 +98,14 @@ func (service *ApiKeyModelVersioningService) ChangeCurrentModelVersioningByModel
 
 	return res, nil
 }
-func (service *ApiKeyModelVersioningService) GetListVerifiedModelVersioning(
+func (service *ApiKeyModelVersioningService) ApiKeyModelIdVersioningListGet(
 	modelId string,
 	offset, limit int,
 	verifyStatus string,
 ) (*ResponseGetListModelVersioningLiteResponse, error) {
-	return service.GetListVerifiedModelVersioningWithContext(context.Background(), modelId, offset, limit, verifyStatus)
+	return service.ApiKeyModelIdVersioningListGetWithContext(context.Background(), modelId, offset, limit, verifyStatus)
 }
-func (service *ApiKeyModelVersioningService) GetListVerifiedModelVersioningWithContext(
+func (service *ApiKeyModelVersioningService) ApiKeyModelIdVersioningListGetWithContext(
 	ctx context.Context,
 	modelId string,
 	offset, limit int,
@@ -142,11 +142,11 @@ func (service *ApiKeyModelVersioningService) GetListVerifiedModelVersioningWithC
 
 	return res, nil
 }
-func (service *ApiKeyModelVersioningService) GetCurrentModelVersioningByModelId(
+func (service *ApiKeyModelVersioningService) ApiKeyModelIdVersioningGet(
 	modelId string) (*ResponseModelVersioningGroupLiteResponse, error) {
-	return service.GetCurrentModelVersioningByModelIdWithContext(context.Background(), modelId)
+	return service.ApiKeyModelIdVersioningGetWithContext(context.Background(), modelId)
 }
-func (service *ApiKeyModelVersioningService) GetCurrentModelVersioningByModelIdWithContext(
+func (service *ApiKeyModelVersioningService) ApiKeyModelIdVersioningGetWithContext(
 	ctx context.Context,
 	modelId string) (*ResponseModelVersioningGroupLiteResponse, error) {
 	endpoint := fmt.Sprintf("/api-key/model/%s/versioning", modelId)
