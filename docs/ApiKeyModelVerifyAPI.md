@@ -39,9 +39,7 @@ Name | Type | Description  | Notes
 
 [**ResponseCheckValidToVerifyAiModelResponse**](ResponseCheckValidToVerifyAiModelResponse.md)
 
-### Authorization
 
-No authorization required
 
 ### HTTP request headers
 
@@ -79,9 +77,6 @@ Name | Type | Description  | Require
 
 [**ResponseEstimateCostResponse**](ResponseEstimateCostResponse.md)
 
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 
@@ -121,9 +116,7 @@ Name | Type | Description  | Require
 
 [**ResponseVerifyAiModelResponse**](ResponseVerifyAiModelResponse.md)
 
-### Authorization
 
-No authorization required
 
 ### HTTP request headers
 
@@ -165,9 +158,6 @@ Name | Type | Description  | Require
 
 [**ResponseModelVersioningGroupLiteListResponse**](ResponseModelVersioningGroupLiteListResponse.md)
 
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 
@@ -201,9 +191,7 @@ Other parameters are passed through a pointer to a apiApiKeyModelVerifyHubTaskId
 
 [**ResponseModelVersioningResponse**](ResponseModelVersioningResponse.md)
 
-### Authorization
 
-No authorization required
 
 ### HTTP request headers
 
@@ -239,9 +227,7 @@ Other parameters are passed through a pointer to a apiApiKeyModelVerifyPlatformT
 
 [**ResponseQueueTaskResponse**](ResponseQueueTaskResponse.md)
 
-### Authorization
 
-No authorization required
 
 ### HTTP request headers
 

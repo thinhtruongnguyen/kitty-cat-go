@@ -34,9 +34,7 @@ Other parameters are passed through a pointer to a apiApiKeyModelIdInfoGetReques
 
 [**ResponseApiKeyInfoResponse**](ResponseApiKeyInfoResponse.md)
 
-### Authorization
 
-No authorization required
 
 ### HTTP request headers
 
@@ -71,9 +69,6 @@ Other parameters are passed through a pointer to a apiApiKeyModelIdServingGetReq
 
 [**ResponseCheckModelIsServingResponse**](ResponseCheckModelIsServingResponse.md)
 
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 
@@ -113,9 +108,6 @@ Name | Type | Description  | Require
 
 [**ResponseGetTaskStatisticsResponse**](ResponseGetTaskStatisticsResponse.md)
 
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 
@@ -149,9 +141,6 @@ Other parameters are passed through a pointer to a apiApiKeyModelIdTaskCostGetRe
 
 [**ResponseEstimateCostResponse**](ResponseEstimateCostResponse.md)
 
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 
@@ -183,9 +172,6 @@ Other parameters are passed through a pointer to a apiApiKeyModelVerifySupportPl
 
 [**ResponseGetListPlatformSupportResponse**](ResponseGetListPlatformSupportResponse.md)
 
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 

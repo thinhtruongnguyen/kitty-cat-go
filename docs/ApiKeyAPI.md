@@ -24,9 +24,6 @@ Get Api Key Balance
 
 [**ResponseWalletWithAddressResponse**](ResponseWalletWithAddressResponse.md)
 
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 
@@ -49,9 +46,6 @@ Get Api Key Permission
 
 [**ResponseGetApiKeyPermissionResponse**](ResponseGetApiKeyPermissionResponse.md)
 
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 
@@ -84,10 +78,6 @@ Name | Type | Description  | Require
 
 [**ResponseGetTaskStatisticsResponse**](ResponseGetTaskStatisticsResponse.md)
 
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
 - **Content-Type**: application/json, application/x-www-form-urlencoded
@@ -119,9 +109,6 @@ Name | Type | Description  | Require
 
 [**ResponseApiKeyHistoryListResponse**](ResponseApiKeyHistoryListResponse.md)
 
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 
@@ -154,9 +141,7 @@ Other parameters are passed through a pointer to a apiApiKeyTaskIdCancelDeleteRe
 
 [**ResponseSuccessResponse**](ResponseSuccessResponse.md)
 
-### Authorization
 
-No authorization required
 
 ### HTTP request headers
 
@@ -191,9 +176,7 @@ Other parameters are passed through a pointer to a apiApiKeyTaskIdResultGetReque
 
 [**ResponseGetTaskResultResponse**](ResponseGetTaskResultResponse.md)
 
-### Authorization
 
-No authorization required
 
 ### HTTP request headers
 
@@ -224,9 +207,7 @@ Name | Type | Description  | Require
 
 [**ResponseDistributeTaskResponse**](ResponseDistributeTaskResponse.md)
 
-### Authorization
 
-No authorization required
 
 ### HTTP request headers
 
